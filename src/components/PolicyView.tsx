@@ -74,8 +74,8 @@ export default function PolicyView({ env, onNarrative }: Props) {
   }, [env, onNarrative]);
 
   const p = env.policy;
-  const update = (key: string, val: number | boolean) => {
-    (env.policy as Record<string, unknown>)[key] = val;
+  const update = <K extends keyof typeof env.policy>(key: K, val: (typeof env.policy)[K]) => {
+    env.policy[key] = val;
     setTick((t) => t + 1);
     onNarrative(policyNarrative(key, val));
   };
