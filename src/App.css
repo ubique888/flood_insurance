@@ -1,0 +1,721 @@
+/* ── Layout ─────────────────────────────────────────── */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+.header {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Navigation ────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.nav-btn.active {
+  background: var(--surface2);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Main content ──────────────────────────────────── */
+
+.main {
+  flex: 1;
+}
+
+.view-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* ── Grid panel ────────────────────────────────────── */
+
+.grid-panel {
+  flex-shrink: 0;
+}
+
+.grid-canvas {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.grid-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.lg {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.agent-unins {
+  background: #ff7043;
+}
+
+.dot.agent-ins {
+  background: #42a5f5;
+}
+
+/* ── Info panel ────────────────────────────────────── */
+
+.info-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.info-panel h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.info-panel .desc {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.info-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-block h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Stats rows ────────────────────────────────────── */
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1rem;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.stat span:first-child {
+  color: var(--text-dim);
+}
+
+.stat span:last-child {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Charts ────────────────────────────────────────── */
+
+.chart-block .chart-container {
+  height: 130px;
+}
+
+/* ── Policy levers ─────────────────────────────────── */
+
+.policy-levers .lever {
+  margin-bottom: 0.75rem;
+}
+
+.lever label {
+  font-size: 0.82rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.lever input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.lever .lever-desc {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.15rem;
+}
+
+/* ── Controls ──────────────────────────────────────── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: var(--surface2);
+  border-color: var(--accent);
+}
+
+.btn.danger {
+  border-color: rgba(239, 83, 80, 0.4);
+  color: var(--red);
+}
+
+.btn.danger:hover {
+  background: rgba(239, 83, 80, 0.15);
+  border-color: var(--red);
+}
+
+.speed {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.speed input[type='range'] {
+  width: 80px;
+  accent-color: var(--accent);
+}
+
+/* ── Narrative bar ─────────────────────────────────── */
+
+.narrative {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.narrative p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Explainer screens ─────────────────────────────── */
+
+.explainer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0.5rem 0 2rem;
+}
+
+.explainer-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.explainer-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.explainer-subtitle {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.explainer-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.explainer-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.explainer-section h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.explainer-section p {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+}
+
+.explainer-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Formulas ──────────────────────────────────────── */
+
+.formula {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0.6rem 0;
+  line-height: 1.7;
+  position: relative;
+}
+
+.formula-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-top: 0.25rem;
+}
+
+.fvar {
+  font-weight: 600;
+}
+
+.fvar.green { color: #66bb6a; }
+.fvar.blue { color: #42a5f5; }
+.fvar.red { color: #ef5350; }
+.fvar.orange { color: #ffa726; }
+.fvar.cyan { color: #4dd0e1; }
+.fvar.accent { color: var(--accent); }
+.fvar.dim { color: var(--text-dim); }
+
+.formula-details {
+  margin: 0.4rem 0 0.6rem;
+  padding-left: 0.5rem;
+}
+
+.fd-row {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.8;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.fd-note {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+/* ── Diagrams ──────────────────────────────────────── */
+
+.explainer-diagram {
+  margin: 0.5rem 0;
+}
+
+.diagram-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.diagram-card {
+  flex: 1;
+  max-width: 260px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.diagram-card strong {
+  font-size: 0.95rem;
+}
+
+.diagram-card span {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.diagram-card.green {
+  border-color: rgba(102, 187, 106, 0.3);
+}
+
+.diagram-card.green strong {
+  color: #66bb6a;
+}
+
+.diagram-card.red {
+  border-color: rgba(239, 83, 80, 0.3);
+}
+
+.diagram-card.red strong {
+  color: #ef5350;
+}
+
+.diagram-sub {
+  font-size: 0.72rem !important;
+  font-style: italic;
+}
+
+.diagram-caption {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* ── Flow diagrams ─────────────────────────────────── */
+
+.diagram-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.diagram-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+}
+
+.diagram-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.diagram-arrow {
+  color: var(--text-dim);
+  font-size: 1.2rem;
+}
+
+/* ── Policy lever diagram ──────────────────────────── */
+
+.lever-diagram {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.lever-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.lever-card strong {
+  font-size: 0.85rem;
+}
+
+.lever-card .formula {
+  padding: 0.4rem 0.5rem;
+  margin: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.lever-effect {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.lever-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 auto 0.2rem;
+}
+
+.lever-icon.blue { background: rgba(66, 165, 245, 0.2); color: #42a5f5; }
+.lever-icon.cyan { background: rgba(77, 208, 225, 0.2); color: #4dd0e1; }
+.lever-icon.orange { background: rgba(255, 167, 38, 0.2); color: #ffa726; }
+.lever-icon.red { background: rgba(239, 83, 80, 0.2); color: #ef5350; }
+
+/* ── Hazard grid ───────────────────────────────────── */
+
+.hazard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hazard-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.82rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.hazard-label {
+  flex-shrink: 0;
+  font-weight: 600;
+  width: 200px;
+  color: var(--text);
+}
+
+.hazard-result {
+  color: var(--text-dim);
+}
+
+.hazard-result.red { color: #ef5350; }
+.hazard-result.orange { color: #ffa726; }
+.hazard-result.green { color: #66bb6a; }
+
+/* ── Insight callout ───────────────────────────────── */
+
+.explainer-insight {
+  background: rgba(66, 165, 245, 0.08);
+  border: 1px solid rgba(66, 165, 245, 0.25);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+}
+
+.insight-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.explainer-insight p {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Start button ──────────────────────────────────── */
+
+.explainer-start {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 2rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: rgba(66, 165, 245, 0.12);
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.explainer-start:hover {
+  background: rgba(66, 165, 245, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ── Formula panel (below grid) ───────────────────── */
+
+.formula-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+}
+
+.formula-panel h3 {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+}
+
+.fp-section {
+  margin-bottom: 0.5rem;
+}
+
+.fp-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 0.2rem;
+}
+
+.fp-formula {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 0.35rem 0.6rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin-bottom: 0.3rem;
+}
+
+.fp-formula.small {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.fp-var {
+  font-weight: 600;
+}
+
+.fp-var.green { color: #66bb6a; }
+.fp-var.blue { color: #42a5f5; }
+.fp-var.red { color: #ef5350; }
+.fp-var.orange { color: #ffa726; }
+.fp-var.cyan { color: #4dd0e1; }
+.fp-var.accent { color: var(--accent); }
+.fp-var.dim { color: var(--text-dim); }
+
+.fp-num {
+  color: #ce93d8;
+  font-weight: 600;
+}
+
+.fp-lbl {
+  color: var(--text-dim);
+}
+
+.fp-cond {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-left: 0.5rem;
+  font-style: italic;
+}
+
+.fp-params {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.fp-param {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+}
+
+/* ── Responsive ────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .view-layout {
+    flex-direction: column;
+  }
+
+  .grid-panel {
+    align-self: center;
+  }
+}
